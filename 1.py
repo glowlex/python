@@ -43,10 +43,6 @@ def _simulate_game(team_list):
     team_dict['heap'] = heap
     return team_dict
 
-def _show_result(dict, team = None):
-    _show_team_results(dict, team)
-
-
 def _show_team_results(dict, team=None):
     if team != None and dict.get(team)!=None:
         i=0
@@ -77,14 +73,14 @@ def _show_heap(heap):
 
 
 def _main():
-    team_list = [x for x in "ABCDEFGHIJKLMNOP"] #ijklmnop
+    team_list = [x for x in "ABCDEFGHIJKLMNOP"]
     team_dict = _simulate_game(team_list[:])
     _show_heap(team_dict['heap'])
     while 1:
         team =input()
         try:
             _show_heap(team_dict['heap'])
-            _show_result(team_dict, team)
+            _show_team_results(team_dict, team)
         except ValueError:
             print("team not found")
 
