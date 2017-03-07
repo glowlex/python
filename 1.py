@@ -64,13 +64,13 @@ def _show_team_results(dict, team=None):
 
 def _show_heap(heap):
     width = 2
-    steps = int(math.log2(len(heap)))+1
+    steps = int(math.log2(len(heap)))
     i = 1
     while i < len(heap):
-        s = ' '.join(['' for x in range(0, width*2**int(steps-2-int(math.log2(i))))])
+        s = ' '.join(['' for x in range(0, width*2**int(steps-1-int(math.log2(i))))])
         j=int(math.log2(i))
         while j==int(math.log2(i)):
-            s+=heap[i]+' '.join(['' for x in range(0, width*2**int(steps-1-int(math.log2(i))))])
+            s+=heap[i]+' '.join(['' for x in range(0, width*2**int(steps-int(math.log2(i))))])
             i+=1
         print(s+'\n'+'\n')
 
