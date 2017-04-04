@@ -36,8 +36,8 @@ def test2():
 
 
 def ignore_exceptions(klas):
-    #@functools.wraps(func)
     def end_func(func):
+        @functools.wraps(func)
         def wrapped(arg):
             try:
                 return func(arg)
@@ -55,10 +55,9 @@ def test3(arg):
 
 
 class Cont:
-    size = 0
-    arr = []
     def __init__(self):
-        pass
+        self.arr = []
+        self.size = 0
 
     def add(self, val):
         self.arr.append(val)
@@ -88,7 +87,7 @@ def _main():
     a[1]=22
     print(a[1])
     print(a[2])
-    print(a[0])
+    print(a[3])
 
 
 if __name__ == "__main__":
